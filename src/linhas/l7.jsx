@@ -212,7 +212,7 @@ const PeriodicTableRow7 = () => {
       >
         <div className="atomic-number">118</div>
         <div className="symbol">Og</div>
-        <div className="name">Oganessônio</div>
+        <div className="name">Ogan</div>
         <div className="atomic-weight">(294)</div>
       </div>
     </div>

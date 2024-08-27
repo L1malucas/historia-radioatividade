@@ -18,9 +18,9 @@ body {
     9,
     auto
   ); 
-  gap: 5px;
+  /* gap: 5px; */
   max-width: 1200px;
-  padding: 10px;
+  padding: 2px;
 }
 
 .element {
@@ -54,15 +54,15 @@ body {
 }
 
 .element[data-group="alkali-metal"] {
-  background-color: #ff6b6b;
+  background-color: #4e1f1f;
 }
 
 .element[data-group="alkaline-earth-metal"] {
-  background-color: #feca57;
+  background-color: #9e7d37;
 }
 
 .element[data-group="transition-metal"] {
-  background-color: #48dbfb;
+  background-color: #1b515e;
 }
 
 .element[data-group="post-transition-metal"] {
@@ -70,19 +70,19 @@ body {
 }
 
 .element[data-group="metalloid"] {
-  background-color: #5f27cd;
+  background-color: #3e1a86;
 }
 
 .element[data-group="nonmetal"] {
-  background-color: #1dd1a1;
+  background-color: #128062;
 }
 
 .element[data-group="halogen"] {
-  background-color: #ff9ff3;
+  background-color: #976190;
 }
 
 .element[data-group="noble-gas"] {
-  background-color: #00d2d3;
+  background-color: #018888;
 }
 
 .element[data-group="lanthanide"] {
@@ -90,10 +90,10 @@ body {
 }
 
 .element[data-group="actinide"] {
-  background-color: #ff9ff3;
+  background-color: #af70a7;
 }
 
-.solid {
+/* .solid {
   border: 2px solid #fff;
 }
 
@@ -107,4 +107,4 @@ body {
 
 .unknown {
   border: 2px solid #9e9e9e;
-}
+} */
