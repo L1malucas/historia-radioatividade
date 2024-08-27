@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tabela-interativa/static/css/main.29d28b5b.css",
+    "main.js": "/tabela-interativa/static/js/main.330e7bac.js",
+    "static/js/453.8c777bdc.chunk.js": "/tabela-interativa/static/js/453.8c777bdc.chunk.js",
+    "index.html": "/tabela-interativa/index.html",
+    "main.29d28b5b.css.map": "/tabela-interativa/static/css/main.29d28b5b.css.map",
+    "main.330e7bac.js.map": "/tabela-interativa/static/js/main.330e7bac.js.map",
+    "453.8c777bdc.chunk.js.map": "/tabela-interativa/static/js/453.8c777bdc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.29d28b5b.css",
+    "static/js/main.330e7bac.js"
+  ]
+}
