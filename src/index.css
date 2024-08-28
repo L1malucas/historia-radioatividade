@@ -1,16 +1,21 @@
+/* Container da timeline */
 .timeline-container {
   font-family: Arial, sans-serif;
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  align-items: center;
+  position: relative;
 }
 
+/* Título principal */
 h2 {
   font-size: 24px;
   margin-bottom: 5px;
 }
 
+/* Container da timeline */
 .timeline {
   display: flex;
   align-items: flex-start;
@@ -20,6 +25,26 @@ h2 {
   margin-top: 50px;
 }
 
+/* Linha da timeline */
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    #ff7f7f 0%,
+    #ffbf7f 20%,
+    #ffff7f 40%,
+    #7fff7f 60%,
+    #7fbfff 80%,
+    #bf7fff 100%
+  );
+  transform: translateY(-50%);
+}
+
+/* Item da timeline */
 .timeline-item {
   position: relative;
   width: 150px;
@@ -31,6 +56,7 @@ h2 {
   z-index: 1;
 }
 
+/* Ícone do item da timeline */
 .timeline-icon {
   font-size: 40px;
   cursor: pointer;
@@ -43,110 +69,160 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.timeline-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 4px; 
-  background: linear-gradient(to right, 
-              #ff7f7f 0%, 
-              #ffbf7f 20%, 
-              #ffff7f 40%, 
-              #7fff7f 60%, 
-              #7fbfff 80%, 
-              #bf7fff 100%);
-  transform: translateY(-50%);
-}
-
-.timeline-year {
-  font-weight: bold;
-  margin-top: 14px;
-}
+/* Animação de hover no ícone */
 .timeline-icon:hover {
   background-color: #ddd;
-}
-
-.timeline-year.active {
-  color: #3498db;
-}
-
-.subtitle {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.timeline-icon:hover {
   transform: scale(1.1);
 }
 
+/* Conteúdo do item da timeline */
 .timeline-content {
   margin-top: 10px;
   text-align: center;
 }
 
+/* Ano do item da timeline */
+.timeline-year {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Título do item da timeline */
 .timeline-title {
   font-size: 14px;
   color: #666;
 }
 
+/* Popup de descrição do item da timeline */
 .timeline-popup {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(10px);
   background-color: white;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  width: 200px;
-  z-index: 2;
+  width: 340px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0.5s;
 }
 
-.timeline-popup h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
+/* Animação do popup quando ativo */
+.timeline-popup.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.timeline-popup p {
-  margin: 0;
-  font-size: 14px;
+/* Subtítulo */
+.subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+  padding-top: 10px;
 }
 
+/* Controles de paginação */
 .pagination-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
+  gap: 10px;
 }
 
-.pagination-button {
-  background-color: #3498db;
-  color: white;
+/* Estilos para as abas */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Botões das abas */
+.tab {
+  background-color: #ecf0f1; /* Cor de fundo padrão das abas */
+  color: #2c3e50; /* Cor do texto padrão */
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 10px;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative; /* Para permitir a adição de um indicador ativo */
 }
 
+/* Indicador de aba ativa */
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Colocar o indicador abaixo da aba */
+  left: 0;
+  right: 0;
+  height: 4px; /* Altura do indicador */
+  background-color: #3498db; /* Cor do indicador */
+  border-radius: 2px;
+}
+
+/* Estilos de hover e foco para as abas */
+.tab:hover,
+.tab:focus {
+  background-color: #bdc3c7; /* Cor de fundo ao passar o mouse */
+  outline: none; /* Remover o contorno padrão do foco */
+}
+
+/* Botões de navegação */
+.pagination-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px; /* Aumentar o padding para tornar o botão mais confortável ao clicar */
+  border-radius: 8px; /* Aumentar o raio da borda para um efeito mais moderno */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold; /* Adicionar negrito para destaque */
+  text-transform: uppercase; /* Transformar o texto para maiúsculas para um visual mais limpo */
+  transition: all 0.3s ease; /* Transição suave para todos os estados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adicionar sombra para dar profundidade */
+}
+
+/* Animação de hover nos botões de navegação */
 .pagination-button:hover {
   background-color: #2980b9;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  transform: translateY(
+    -3px
+  ); /* Levantar o botão para um efeito de clique mais dinâmico */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensificar a sombra ao passar o mouse */
 }
 
+/* Animação de foco nos botões de navegação */
+.pagination-button:focus {
+  outline: none; /* Remover o contorno padrão do foco */
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5); /* Adicionar uma borda de foco personalizada */
+}
 
+/* Container da paginação de informações */
+.pagination-info {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+/* Ajuste a formatação do texto */
+.pagination-info p {
+  margin: 0;
+  font-size: 14px;
+}
