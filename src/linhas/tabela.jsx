@@ -52,42 +52,74 @@ const timelineData = [
   },
 ];
 
+const ITEMS_PER_PAGE = 3; // Exibir três itens por página
 
 const TimelineComponent = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
 
-  const handleToggle = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+  // Função para dividir os itens por páginas
+  const paginatedData = timelineData.slice(
+    currentPage * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE + ITEMS_PER_PAGE
+  );
+
+  const handleNextPage = () => {
+    if ((currentPage + 1) * ITEMS_PER_PAGE < timelineData.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   return (
     <div className="timeline-container">
-      <h2>Linha do Tempo de Informações</h2>
-      <p>Coloque aqui o subtítulo</p>
+      <h2>Linha do Tempo da Radioatividade</h2>
+      <p className="subtitle">1934 - 2000</p>
+
       <div className="timeline">
-        {timelineData.map((event, index) => (
+        <div className="timeline-line"></div>
+
+        {paginatedData.map((item, index) => (
           <div key={index} className="timeline-item">
-            <div className="timeline-icon" onClick={() => handleToggle(index)}>
-              {event.icon}
-            </div>
             <div
-              className={`timeline-year ${
-                activeIndex === index ? "active" : ""
-              }`}
+              className="timeline-icon"
+              onClick={() => setActiveItem(activeItem === index ? null : index)}
             >
-              {event.year}
+              {item.icon}
             </div>
-            <div className="timeline-short-description">
-              {event.shortDescription}
+            <div className="timeline-content">
+              <br />
+              <p className="timeline-year">{item.year}</p>
+              <p className="timeline-title">{item.title}</p>
             </div>
-            {activeIndex === index && (
-              <div className="timeline-details">
-                <h3>{event.title}</h3>
-                <p>{event.longDescription}</p>
+            {activeItem === index && (
+              <div className="timeline-popup">
+                <h3>{item.title}</h3>
+                <p>{item.longDescription}</p>
               </div>
             )}
           </div>
         ))}
+      </div>
+
+      {/* Botões de navegação */}
+      <div className="pagination-controls">
+        {currentPage > 0 && (
+          <button className="pagination-button" onClick={handlePreviousPage}>
+            Próxima
+          </button>
+        )}
+        {currentPage * ITEMS_PER_PAGE + ITEMS_PER_PAGE <
+          timelineData.length && (
+          <button className="pagination-button" onClick={handleNextPage}>
+            Voltar
+          </button>
+        )}
       </div>
     </div>
   );
