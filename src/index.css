@@ -1,116 +1,73 @@
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-  color: #fff;
-  font-family: Roboto, sans-serif;
-  background-color: #838383;
-  
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.periodic-table {
-  display: grid;
-  grid-template-columns: repeat(18, 1fr);
-  grid-template-rows: repeat(
-    9,
-    auto
-  ); 
-  /* gap: 5px; */
-  max-width: 90vw;
-  width: 100%;
-  padding: 2px;
-}
-
-.element {
-  border: 1px solid #444;
-  padding: 10px;
+.timeline-container {
   text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
   position: relative;
-  background-color: #333;
-  border-radius: 5px;
-  font-size: 0.8em;
-  width: 42px;
+  margin-top: 20px;
 }
 
-.element .atomic-number {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  font-size: 0.7em;
+.timeline-item {
+  position: relative;
+  width: 150px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.element .symbol {
-  font-size: 1.5em;
+.timeline-icon {
+  font-size: 40px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.timeline-year {
   font-weight: bold;
+  margin-top: 10px;
 }
 
-.element .name {
-  font-size: 0.8em;
+.timeline-short-description {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #666;
 }
 
-.element .atomic-weight {
-  font-size: 0.7em;
+.timeline-details {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  animation: fadeIn 0.5s ease;
 }
 
-.element[data-group="alkali-metal"] {
-  background-color: #4e1f1f;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.element[data-group="alkaline-earth-metal"] {
-  background-color: #9e7d37;
+.timeline-icon:hover {
+  background-color: #ddd;
 }
 
-.element[data-group="transition-metal"] {
-  background-color: #1b515e;
+.timeline-year.active {
+  color: #3498db;
 }
-
-.element[data-group="post-transition-metal"] {
-  background-color: #54a0ff;
-}
-
-.element[data-group="metalloid"] {
-  background-color: #3e1a86;
-}
-
-.element[data-group="nonmetal"] {
-  background-color: #128062;
-}
-
-.element[data-group="halogen"] {
-  background-color: #976190;
-}
-
-.element[data-group="noble-gas"] {
-  background-color: #018888;
-}
-
-.element[data-group="lanthanide"] {
-  background-color: #5f27cd;
-}
-
-.element[data-group="actinide"] {
-  background-color: #af70a7;
-}
-
-/* .solid {
-  border: 2px solid #fff;
-}
- */
-
-
-
-
-.liquid {
-  border: 2px dashed #fff;
-}
-  .gas {
-  border: 2px dotted #fff;
-}
-
-.unknown {
-  border: 2px solid #9e9e9e;
-} 
