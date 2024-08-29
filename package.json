@@ -1,8 +1,8 @@
 {
-  "name": "tabelainterativa",
+  "name": "radioatividade",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://l1malucas.github.io/tabela-interativa/",
+  "homepage": "https://l1malucas.github.io/radioatividade",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -14,7 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build", 
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
