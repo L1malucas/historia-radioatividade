@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/radioatividade/static/css/main.4b6c088b.css",
+    "main.js": "/radioatividade/static/js/main.11798a24.js",
+    "static/js/453.c6ee54d6.chunk.js": "/radioatividade/static/js/453.c6ee54d6.chunk.js",
+    "index.html": "/radioatividade/index.html",
+    "main.4b6c088b.css.map": "/radioatividade/static/css/main.4b6c088b.css.map",
+    "main.11798a24.js.map": "/radioatividade/static/js/main.11798a24.js.map",
+    "453.c6ee54d6.chunk.js.map": "/radioatividade/static/js/453.c6ee54d6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b6c088b.css",
+    "static/js/main.11798a24.js"
+  ]
+}
