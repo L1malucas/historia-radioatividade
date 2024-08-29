@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../index.css";
 
 import { world, Brasil } from "../data.js";
@@ -8,8 +8,10 @@ const TimelineComponent = () => {
   const [activeItem, setActiveItem] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [activeTab, setActiveTab] = useState("world");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const dataToDisplay = activeTab === "world" ? world : Brasil;
+  const popupRef = useRef(null);
 
   const paginatedData = dataToDisplay.slice(
     currentPage * ITEMS_PER_PAGE,
@@ -32,6 +34,31 @@ const TimelineComponent = () => {
     setActiveTab(tab);
     setCurrentPage(0);
   };
+
+  const handleClickOutside = (event) => {
+    if (popupRef.current && !popupRef.current.contains(event.target)) {
+      setActiveItem(null);
+    }
+  };
+
+  const handleItemClick = (index) => {
+    setActiveItem(activeItem === index ? null : index);
+    if (window.innerWidth <= 412) {
+      setIsModalOpen(true);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setActiveItem(null);
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const totalItems = dataToDisplay.length;
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
@@ -66,7 +93,7 @@ const TimelineComponent = () => {
           <div key={index} className="timeline-item">
             <div
               className="timeline-icon"
-              onClick={() => setActiveItem(activeItem === index ? null : index)}
+              onClick={() => handleItemClick(index)}
             >
               {item.icon}
             </div>
@@ -76,6 +103,7 @@ const TimelineComponent = () => {
               <p className="timeline-title">{item.title}</p>
             </div>
             <div
+              ref={activeItem === index ? popupRef : null}
               className={`timeline-popup ${
                 activeItem === index ? "active" : ""
               }`}
@@ -86,6 +114,19 @@ const TimelineComponent = () => {
           </div>
         ))}
       </div>
+
+      {/* Modal for mobile devices */}
+      {isModalOpen && activeItem !== null && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <span className="modal-close" onClick={closeModal}>
+              &times;
+            </span>
+            <h3>{paginatedData[activeItem].title}</h3>
+            <p>{paginatedData[activeItem].longDescription}</p>
+          </div>
+        </div>
+      )}
 
       {/* Botões de navegação */}
       <div className="pagination-controls">
@@ -105,7 +146,7 @@ const TimelineComponent = () => {
       {/* Informações de paginação */}
       <div className="pagination-info">
         <p>
-           {currentPage + 1} de {totalPages}
+          {currentPage + 1} de {totalPages}
         </p>
         <p>Total de itens: {totalItems}</p>
       </div>
