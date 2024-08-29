@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/radioatividade/static/css/main.4b6c088b.css",
-    "main.js": "/radioatividade/static/js/main.11798a24.js",
-    "static/js/453.c6ee54d6.chunk.js": "/radioatividade/static/js/453.c6ee54d6.chunk.js",
-    "index.html": "/radioatividade/index.html",
-    "main.4b6c088b.css.map": "/radioatividade/static/css/main.4b6c088b.css.map",
-    "main.11798a24.js.map": "/radioatividade/static/js/main.11798a24.js.map",
-    "453.c6ee54d6.chunk.js.map": "/radioatividade/static/js/453.c6ee54d6.chunk.js.map"
+    "main.css": "/historia-radioatividade/static/css/main.4b6c088b.css",
+    "main.js": "/historia-radioatividade/static/js/main.3cd13cc9.js",
+    "static/js/453.c6ee54d6.chunk.js": "/historia-radioatividade/static/js/453.c6ee54d6.chunk.js",
+    "index.html": "/historia-radioatividade/index.html",
+    "main.4b6c088b.css.map": "/historia-radioatividade/static/css/main.4b6c088b.css.map",
+    "main.3cd13cc9.js.map": "/historia-radioatividade/static/js/main.3cd13cc9.js.map",
+    "453.c6ee54d6.chunk.js.map": "/historia-radioatividade/static/js/453.c6ee54d6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4b6c088b.css",
-    "static/js/main.11798a24.js"
+    "static/js/main.3cd13cc9.js"
   ]
 }
