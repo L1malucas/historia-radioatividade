@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/historia-radioatividade/static/css/main.4b6c088b.css",
-    "main.js": "/historia-radioatividade/static/js/main.3cd13cc9.js",
+    "main.js": "/historia-radioatividade/static/js/main.6900e5ce.js",
     "static/js/453.c6ee54d6.chunk.js": "/historia-radioatividade/static/js/453.c6ee54d6.chunk.js",
     "index.html": "/historia-radioatividade/index.html",
     "main.4b6c088b.css.map": "/historia-radioatividade/static/css/main.4b6c088b.css.map",
-    "main.3cd13cc9.js.map": "/historia-radioatividade/static/js/main.3cd13cc9.js.map",
+    "main.6900e5ce.js.map": "/historia-radioatividade/static/js/main.6900e5ce.js.map",
     "453.c6ee54d6.chunk.js.map": "/historia-radioatividade/static/js/453.c6ee54d6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4b6c088b.css",
-    "static/js/main.3cd13cc9.js"
+    "static/js/main.6900e5ce.js"
   ]
 }
