@@ -65,7 +65,7 @@ const TimelineComponent = () => {
 
   return (
     <div className="timeline-container">
-      <h2>Linha do Tempo da Radiotividade</h2>
+      <h2>Marcos na História da Radiotividade</h2>
       <br />
       {/* Abas de navegação */}
       <div className="tabs">
