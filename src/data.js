@@ -42,7 +42,7 @@ export const world = [
     longDescription: "Entre 1907 e 1914, plantas industriais de rádio são criadas na Europa e nos EUA. A Indústria Química começa a investir em produtos contendo elementos radioativos, como cosméticos, águas radioativas e medicamentos como o Radithor."
   },
   {
-    year: "1920-1931",
+    year: "1920-1925",
     icon: "⚠️",
     title: "Efeitos Adversos da Radioatividade",
     shortDescription: "Relatos sobre os perigos da radioatividade aumentam.",
@@ -63,11 +63,11 @@ export const world = [
     longDescription: "Marie Curie morre de leucemia aos 67 anos, possivelmente em função da exposição prolongada à radiação durante grande parte de sua vida."
   },
   {
-    year: "1939-1945",
+    year: "1939",
     icon: "💥",
-    title: "Segunda Guerra Mundial e a Fissão Nuclear",
+    title: "Fissão Nuclear",
     shortDescription: "Descoberta da fissão nuclear e o Projeto Manhattan.",
-    longDescription: "Otto Hahn, Fritz Strassmann e Lise Meitner identificam a fissão do urânio. Com o início da Segunda Guerra Mundial, os EUA criam o Projeto Manhattan, resultando no lançamento de bombas atômicas em Hiroxima e Nagasaqui em 1945."
+    longDescription: "Otto Hahn, Fritz Strassmann e Lise Meitner identificam a fissão do urânio. Com o início da Segunda Guerra Mundial, os EUA criam o Projeto Manhattan."
   },
   {
     year: "1943",
@@ -75,6 +75,13 @@ export const world = [
     title: "Primeiro Reator Nuclear Operacional",
     shortDescription: "Primeiro reator nuclear operacional ativado.",
     longDescription: "É ativado o primeiro reator nuclear operacional em Oak Ridge, EUA."
+  },
+  {
+    year: "1945",
+    icon: "💥",
+    title: "Bombas Atômicas em Hiroxima e Nagasaqui",
+    shortDescription: "Lançamento de bombas atômicas em Hiroxima e Nagasaqui",
+    longDescription: "Os EUA lançam bombas atômicas nas cidades japonesas de Hiroxima e Nagasaqui, encerrando a Segunda Guerra Mundial."
   },
   {
     year: "1946",
