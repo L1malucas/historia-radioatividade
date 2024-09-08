@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../index.css";
 
-import { world, Brasil } from "../data.js";
+import "../styles/index.css";
+import { world, Brasil } from "../data/data.js";
+
 const ITEMS_PER_PAGE = 4;
 
 const TimelineComponent = () => {
@@ -65,7 +66,7 @@ const TimelineComponent = () => {
 
   return (
     <div className="timeline-container">
-      <h2>Marcos na História da Radiotividade</h2>
+      <h2>Marcos na História da Radioatividade</h2>
       <br />
       {/* Abas de navegação */}
       <div className="tabs">
@@ -85,10 +86,8 @@ const TimelineComponent = () => {
       <p className="subtitle">
         {activeTab === "world" ? "1896 - 2011" : "1934 - 2021"}
       </p>
-
       <div className="timeline">
         <div className="timeline-line"></div>
-
         {paginatedData.map((item, index) => (
           <div key={index} className="timeline-item">
             <div
@@ -114,8 +113,6 @@ const TimelineComponent = () => {
           </div>
         ))}
       </div>
-
-      {/* Modal for mobile devices */}
       {isModalOpen && activeItem !== null && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -127,8 +124,6 @@ const TimelineComponent = () => {
           </div>
         </div>
       )}
-
-      {/* Botões de navegação */}
       <div className="pagination-controls">
         {currentPage > 0 && (
           <button className="pagination-button" onClick={handlePreviousPage}>
@@ -142,8 +137,6 @@ const TimelineComponent = () => {
           </button>
         )}
       </div>
-
-      {/* Informações de paginação */}
       <div className="pagination-info">
         <p>
           {currentPage + 1} de {totalPages}

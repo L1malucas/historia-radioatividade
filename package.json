@@ -1,7 +1,7 @@
 {
-  "name": "radioatividade",
+  "name": "historia-radioatividade",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://l1malucas.github.io/historia-radioatividade/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

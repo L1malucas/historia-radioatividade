@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
-import TimelineComponent from './linhas/tabela';
-import Loading from './linhas/loading';
+
+import './styles/index.css';
+import Loading from './components/loading';
+import TimelineComponent from './components/timelineComponent';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulando um carregamento de dados
     setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2 segundos de loading
+    }, 2000); 
   }, []);
 
   return loading ? <Loading /> : <TimelineComponent />;
