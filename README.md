@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# Documentação do Projeto: Timeline da Radioatividade
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Visão Geral
 
-## Available Scripts
+Este projeto consiste em uma aplicação React que exibe uma timeline interativa sobre marcos importantes na história da radioatividade. A aplicação permite aos usuários navegar entre eventos históricos relacionados à radioatividade no mundo e no Brasil.
 
-In the project directory, you can run:
+## Componentes Principais
 
-### `npm start`
+### App
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O componente principal que gerencia o estado de carregamento e renderiza o componente de timeline.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```jsx
+const App = () => {
+  const [loading, setLoading] = useState(true);
 
-### `npm test`
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000); 
+  }, []);
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  return loading ? <Loading /> : <TimelineComponent />;
+};
+```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### TimelineComponent
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O componente principal que renderiza a timeline interativa.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Funcionalidades
 
-### `npm run eject`
+- Exibição de eventos em uma linha do tempo
+- Navegação entre páginas de eventos
+- Alternância entre timeline mundial e brasileira
+- Exibição de detalhes do evento em um popup ou modal (dependendo do tamanho da tela)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Estados
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `activeItem`: Controla qual item está ativo (expandido)
+- `currentPage`: Controla a página atual da timeline
+- `activeTab`: Controla qual tab está ativa (mundo ou Brasil)
+- `isModalOpen`: Controla a exibição do modal em telas menores
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Funções Principais
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `handleNextPage()` e `handlePreviousPage()`: Navegação entre páginas
+- `handleTabChange()`: Alterna entre as timelines mundial e brasileira
+- `handleItemClick()`: Gerencia a exibição de detalhes do evento
 
-## Learn More
+### Loading
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Um componente que exibe uma animação de carregamento com ícones relacionados à química e biologia.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```jsx
+const Loading = () => {
+  return (
+    <div className="loading-container">
+      <div className="loading-animation">
+        <div className="chemical-item">⚗️</div>
+        <div className="chemical-item">⚛️</div>
+        <div className="chemical-item">🧪</div>
+        <div className="chemical-item">🧬</div>
+      </div>
+      <p>Carregando...</p>
+    </div>
+  );
+};
+```
+## Dados
 
-### Code Splitting
+Os dados dos eventos são armazenados em um arquivo JSON separado, com o seguinte formato:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```javascript
+export const world = [
+  {
+    year: "1896",
+    icon: "☢️",
+    title: "Descoberta da Radiação",
+    shortDescription: "Henri Becquerel descobre a radiação.",
+    longDescription: "O cientista francês Henri Becquerel descobre a radiação a partir de experimentos utilizando urânio. Marie S. Curie dá o nome de radioatividade à radiação examinada por Becquerel."
+  },
+];
+```
+Os dados foram obtidos do site: [CNEN](https://memoria.cnen.gov.br/memoria/Cronologia.asp?Unidade=Mundo) e artigos diversos.
 
-### Analyzing the Bundle Size
+## Estilos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Os estilos são definidos em arquivos CSS separados (`index.css` e `loading.css`) e incluem:
 
-### Making a Progressive Web App
+- Layout responsivo
+- Animações para a linha do tempo
+- Estilos para os popups e modais
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Considerações de Uso
 
-### Advanced Configuration
+- A aplicação é responsiva e se adapta a diferentes tamanhos de tela
+- Em telas menores (≤ 412px), os detalhes dos eventos são exibidos em um modal
+- A navegação entre páginas é limitada pelo número total de eventos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Melhorias Futuras
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Implementar busca de eventos
+- Implementar um guia de uso dos modais e ícones
+- Adicionar mais interatividade à linha do tempo
+- Expandir o conjunto de dados para incluir mais eventos históricos
